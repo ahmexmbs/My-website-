@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function validateLoginForm(event) {
+      event.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      if (!email || !password) {
+        alert("Please fill out both fields.");
+        return;
+      }
+      alert("Login successful (placeholder logic).");
+    }
+
+    function openModal(imgSrc) {
+      document.getElementById("modal-img").src = imgSrc;
+      document.getElementById("img-modal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("img-modal").classList.add("hidden");
+    }
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Navbar -->
+  <nav class="bg-white shadow p-4 flex justify-between">
+    <h1 class="text-xl font-bold">MySite</h1>
+    <ul class="flex gap-4">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#login">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="p-10 text-center">
+    <h2 class="text-3xl font-bold">Welcome to My Website</h2>
+    <p class="mt-4">Showcasing my work, business, and blog all in one place.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="p-10 bg-white">
+    <h2 class="text-2xl font-semibold">About Me</h2>
+    <p class="mt-2">[Placeholder for personal and business bio]</p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="p-10">
+    <h2 class="text-2xl font-semibold">Portfolio</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+      <img src="https://via.placeholder.com/300" onclick="openModal(this.src)" class="cursor-pointer rounded shadow" alt="Gallery image" />
+      <img src="https://via.placeholder.com/300" onclick="openModal(this.src)" class="cursor-pointer rounded shadow" alt="Gallery image" />
+      <img src="https://via.placeholder.com/300" onclick="openModal(this.src)" class="cursor-pointer rounded shadow" alt="Gallery image" />
+    </div>
+  </section>
+
+  <!-- Image Modal -->
+  <div id="img-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+    <img id="modal-img" src="" class="max-w-full max-h-full rounded" />
+    <button onclick="closeModal()" class="absolute top-5 right-5 text-white text-2xl">&times;</button>
+  </div>
+
+  <!-- Shop Section -->
+  <section id="shop" class="p-10 bg-white">
+    <h2 class="text-2xl font-semibold">Shop</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
+      <div class="bg-gray-50 p-4 rounded shadow hover:shadow-md transition">
+        <img src="https://via.placeholder.com/150" alt="Product 1" class="rounded" />
+        <h3 class="mt-2 font-bold">Product 1</h3>
+        <p>$29.99</p>
+        <button class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">Buy</button>
+      </div>
+      <div class="bg-gray-50 p-4 rounded shadow hover:shadow-md transition">
+        <img src="https://via.placeholder.com/150" alt="Product 2" class="rounded" />
+        <h3 class="mt-2 font-bold">Product 2</h3>
+        <p>$39.99</p>
+        <button class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">Buy</button>
+      </div>
+      <div class="bg-gray-50 p-4 rounded shadow hover:shadow-md transition">
+        <img src="https://via.placeholder.com/150" alt="Product 3" class="rounded" />
+        <h3 class="mt-2 font-bold">Product 3</h3>
+        <p>$49.99</p>
+        <button class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">Buy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="p-10">
+    <h2 class="text-2xl font-semibold">Blog</h2>
+    <div class="space-y-4 mt-4">
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="text-xl font-bold">Blog Post Title 1</h3>
+        <p class="text-sm text-gray-500">April 25, 2025</p>
+        <p class="mt-2">This is a short excerpt from the first blog post. It gives readers a glimpse of what to expect.</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="text-xl font-bold">Blog Post Title 2</h3>
+        <p class="text-sm text-gray-500">April 20, 2025</p>
+        <p class="mt-2">This is a short excerpt from the second blog post. Engaging and informative content goes here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="p-10 bg-white">
+    <h2 class="text-2xl font-semibold">Contact Me</h2>
+    <form class="mt-4 space-y-4 max-w-md">
+      <input class="w-full p-2 border rounded" type="text" placeholder="Name" required />
+      <input class="w-full p-2 border rounded" type="email" placeholder="Email" required />
+      <textarea class="w-full p-2 border rounded" placeholder="Your message" required></textarea>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded" type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Login Section -->
+  <section id="login" class="p-10">
+    <h2 class="text-2xl font-semibold">Login</h2>
+    <form onsubmit="validateLoginForm(event)" class="mt-4 space-y-4 max-w-md">
+      <input id="login-email" class="w-full p-2 border rounded" type="email" placeholder="Email" />
+      <input id="login-password" class="w-full p-2 border rounded" type="password" placeholder="Password" />
+      <button class="bg-green-600 text-white px-4 py-2 rounded" type="submit">Login</button>
+    </form>
+  </section>
+
+  <footer class="bg-gray-800 text-white p-4 text-center mt-10">
+    &copy; 2025 MySite. All rights reserved.
+  </footer>
+</body>
+</html>
